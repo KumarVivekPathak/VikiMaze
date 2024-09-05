@@ -81,43 +81,43 @@ const ImageGenerator = () => {
     // }
 
 
-    const getImage = async (id) => {
-        const response = await fetch(`https://api.starryai.com/creations/${id}`, {
-            method: "GET",
-            headers: {
-                accept: 'application/json',
-                'X-API-Key': 'VaXPzda7elH0KlOH6jxQKJgNctOdDA'
-            }
-        })
-        const responseJson = await response.json();
-        const ImageURL = responseJson.images[0].url;
-        setImage_url(ImageURL + "")
-        console.log("response image : ", responseJson);
-    }
+    // const getImage = async (id) => {
+    //     const response = await fetch(`https://api.starryai.com/creations/${id}`, {
+    //         method: "GET",
+    //         headers: {
+    //             accept: 'application/json',
+    //             'X-API-Key': 'VaXPzda7elH0KlOH6jxQKJgNctOdDA'
+    //         }
+    //     })
+    //     const responseJson = await response.json();
+    //     const ImageURL = responseJson.images[0].url;
+    //     setImage_url(ImageURL + "")
+    //     console.log("response image : ", responseJson);
+    // }
 
-    const generateImg = async () => {
-        const response = await fetch('https://api.replicate.com/v1/predictions', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer r8_ItBeFnNTS0ZNnJhjedsEvJxzAss6FTE4JgvmE`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                version: '3c6374e7a9a17e01afe306a5218cc67de55b19ea536466d6ea2602cfecea40a9',
-                input: {
-                    prompt: inputRef.current.value,
-                    scheduler: 'p_sampler',
-                    prior_steps: '5',
-                    guidance_scale: 4,
-                    prior_cf_scale: 4,
-                    num_inference_steps: 100
-                }
-            })
-        })
+    // const generateImg = async () => {
+    //     const response = await fetch('https://api.replicate.com/v1/predictions', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Authorization': `Bearer r8_ItBeFnNTS0ZNnJhjedsEvJxzAss6FTE4JgvmE`,
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({
+    //             version: '3c6374e7a9a17e01afe306a5218cc67de55b19ea536466d6ea2602cfecea40a9',
+    //             input: {
+    //                 prompt: inputRef.current.value,
+    //                 scheduler: 'p_sampler',
+    //                 prior_steps: '5',
+    //                 guidance_scale: 4,
+    //                 prior_cf_scale: 4,
+    //                 num_inference_steps: 100
+    //             }
+    //         })
+    //     })
 
-        const responseJson = await response.json();
-        console.log("replcate : \n\n ", responseJson);
-    }
+    //     const responseJson = await response.json();
+    //     console.log("replcate : \n\n ", responseJson);
+    // }
 
 
 
@@ -138,7 +138,7 @@ const ImageGenerator = () => {
                     onClick={() => {
                         // generateImage()
                         // imageId && getImage(imageId)
-                        generateImg()
+                        // generateImg()
                     }}
                     // onClick={() => getImage(79309)}
                     // onClick={() => handleImage()}
